@@ -22,7 +22,7 @@ fi
 # setup vim
 if command -v vim > /dev/null; then
     mv ~/.vimrc ~/.vimrc.bak
-    echo "source ~/$repo/vim/sample.vimrc" >> ~/.vimrc
+    echo "source ~/$repo/vim/.vimrc" >> ~/.vimrc
 else
     echo Could not find `vim`.
 fi
@@ -30,7 +30,7 @@ fi
 # setup tmux
 if command -v tmux > /dev/null; then
     mv ~/.tmux.conf ~/.tmux.conf.bak
-    echo "source ~/$repo/tmux/sample.tmux.conf" >> ~/.tmux.conf
+    echo "source ~/$repo/tmux/tmux.conf" >> ~/.tmux.conf
 else
     echo Could not find `tmux`.
 fi
@@ -39,7 +39,7 @@ fi
 if command -v zsh > /dev/null; then
     if [ -d ~/.oh-my-zsh ]; then
         mv ~/.zshrc ~/.zshrc.bak
-        echo "source ~/$repo/zsh/sample.zshrc" >> ~/.zshrc
+        echo "source ~/$repo/zsh/.zshrc" >> ~/.zshrc
         # install zsh-autosuggestions
         if ! [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]; then
             git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
