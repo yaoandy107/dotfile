@@ -1,45 +1,57 @@
+#! /usr/bin/env bash
+
 # set constant
-repo='.shconf'
+repo_url="https://github.com/yaoandy107/.shconf"
+repo_name=".shconf"
+reqirements="git"
 
 # check reqirements
-for app in git; do
+for app in $reqirements; do
     if ! command -v $app > /dev/null; then
-        echo 'Could not find `'$app'`, installation stopped.'
+        echo Could not find '`'$app'`', installation stopped.
         exit 1
     fi
 done
 
-# clone into computer
-if [ -d ~/$repo ]; then
-    rm -rf ~/$repo
+# remove if already exist
+if [ -d ~/$repo_name ]; then
+    rm -rf ~/$repo_name
 fi
-git clone https://github.com/yaoandy107/$repo ~/$repo
+
+# clone into computer
+git clone $repo_url ~/$repo_name
 if [ $? != 0 ]; then
-    echo Could not clone $repo.
+    echo Could not clone $repo_name.
     exit 2
 fi
 
 # setup vim
-if command -v vim > /dev/null; then
-    mv ~/.vimrc ~/.vimrc.bak
-    echo "source ~/$repo/vim/.vimrc" >> ~/.vimrc
+if command -v vim > /dev/null 2>&1; then
+    if [ -f ~/.vimrc ]; then
+        mv ~/.vimrc ~/.vimrc.bak
+    fi
+    echo "source ~/$repo_name/vim/.vimrc" >> ~/.vimrc
 else
-    echo Could not find `vim`.
+    echo Could not find '`'vim'`'.
 fi
 
 # setup tmux
-if command -v tmux > /dev/null; then
-    mv ~/.tmux.conf ~/.tmux.conf.bak
-    echo "source ~/$repo/tmux/tmux.conf" >> ~/.tmux.conf
+if command -v tmux > /dev/null 2>&1; then
+    if [ -f ~/.tmux.conf ]; then
+        mv ~/.tmux.conf ~/.tmux.conf.bak
+    fi
+    echo "source ~/$repo_name/tmux/tmux.conf" >> ~/.tmux.conf
 else
-    echo Could not find `tmux`.
+    echo Could not find '`'tmux'`'.
 fi
 
 # setup zsh
-if command -v zsh > /dev/null; then
+if command -v zsh > /dev/null 2>&1; then
     if [ -d ~/.oh-my-zsh ]; then
-        mv ~/.zshrc ~/.zshrc.bak
-        echo "source ~/$repo/zsh/.zshrc" >> ~/.zshrc
+        if [ -f ~/.zshrc ]; then
+            mv ~/.zshrc ~/.zshrc.bak
+        fi
+        echo "source ~/$repo_name/zsh/.zshrc" >> ~/.zshrc
         # install zsh-autosuggestions
         if ! [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]; then
             git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -49,9 +61,12 @@ if command -v zsh > /dev/null; then
             git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
         fi
     else
-        echo Could not find `oh-my-zsh`.
+        echo Could not find '`'oh-my-zsh'`'.
     fi
 else
-    echo Could not find `zsh`.
+    echo Could not find '`'zsh'`'.
 fi
 
+# finished
+echo
+echo Done! $repo_name was installed.
