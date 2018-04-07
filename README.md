@@ -6,6 +6,10 @@ My shell config, thanks for [PinLin/.shconf](https://github.com/PinLin/.shconf)
 + `vim`
 + `tmux`
 + `zsh`
+```sh
+# In Ubuntu
+sudo apt-get install -y git vim tmux zsh
+```
 + [`oh-my-zsh`](http://ohmyz.sh)
 ```sh
 # oh-my-zsh installation guide
