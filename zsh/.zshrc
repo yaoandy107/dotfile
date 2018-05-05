@@ -9,7 +9,16 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# 左側
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs)
+# 右側
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram load time)
+# 若當前登入的帳號為你的帳號 xxx，就不用特別顯示出來
+DEFAULT_USER="yaoandy107"
+# 使用 nerd font 時可以顯示更多 icon。詳情請參考 powerlevel9k wiki 
+POWERLEVEL9K_MODE='nerdfont-complete'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -90,15 +99,7 @@ alias l='ls -lh'
 alias ll='ls -alh'
 alias la='ls -a'
 alias blog='hexo clean; hexo d -g'
-
-function weather {
-    if [ "$1" != "" ]; then
-        curl wttr.in/~$1
-    else
-        echo 'Please input a city name.'
-    fi
-}
+alias ip='curl orange.tw'
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-

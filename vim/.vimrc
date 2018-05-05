@@ -14,7 +14,6 @@ set shiftwidth=4
 set tabstop=4
 
 nnoremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
-set cursorcolumn
 set cursorline
 set foldmethod=syntax
 set number
@@ -22,6 +21,7 @@ set ruler
 set showcmd
 set showmode
 set statusline=[%{expand('%:p')}][%{strlen(&fenc)?&fenc:&enc},\ %{&ff},\ %{strlen(&filetype)?&filetype:'plain'}]%{FileSize()}%{IsBinary()}%=%c,%l/%L\ [%3p%%]
+set nu
 
 autocmd FileType make setlocal noexpandtab
 
@@ -47,3 +47,6 @@ function IsBinary()
     endif
 endfunction
 
+filetype indent on
+hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
+hi CursorLineNr cterm=bold ctermfg=Green ctermbg=NONE
