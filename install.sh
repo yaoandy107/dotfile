@@ -53,7 +53,7 @@ if command -v zsh > /dev/null 2>&1; then
         fi
         echo "source ~/$repo_name/zsh/.zshrc" >> ~/.zshrc
         # install powerlevel9k theme
-        if ! [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}//themes/powerlevel9k ]; then
+        if ! [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel9k ]; then
             git clone https://github.com/bhilburn/powerlevel9k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel9k
         fi
         # install zsh-autosuggestions
