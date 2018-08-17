@@ -108,7 +108,7 @@ function main {
     # Clone repo
     git clone $URL ~/$NAME
     if [ $? != 0 ]; then
-        echo "Could not clone $NAME."
+        echo "Could not  clone$NAME."
         return 1
     fi
 
