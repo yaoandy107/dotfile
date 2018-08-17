@@ -106,7 +106,7 @@ function main {
     fi
 
     # Clone repo
-    git cl  one $URL ~/$NAME
+    git clone  one $URL ~/$NAME
     if [ $? != 0 ]; then
         echo "Could not clone $NAME."
         return 1
