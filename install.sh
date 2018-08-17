@@ -140,7 +140,7 @@ function main {
         if [ -f ~/.zshrc ]; then
             mv ~/.zshrc ~/.zshrc.bak
         fi
-        if [ -f  ~/.oh-my-zsh/custom/themes/powerlevel9k ]; then
+        if ! [ -f  ~/.oh-my-zsh/custom/themes/powerlevel9k ]; then
             git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
         fi
         echo "source ~/$NAME/config/zsh/sample.zshrc" >> ~/.zshrc
