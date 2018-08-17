@@ -139,6 +139,7 @@ function main {
         fi
         if [ -f ~/.zshrc ]; then
             mv ~/.zshrc ~/.zshrc.bak
+        fi
         if [ -f  ~/.oh-my-zsh/custom/themes/powerlevel9k ]; then
             git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
         fi
