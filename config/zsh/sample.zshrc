@@ -14,7 +14,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # 左側
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs)
 # 右側
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram load time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram time)
 # 若當前登入的帳號為你的帳號 xxx，就不用特別顯示出來
 DEFAULT_USER="yaoandy107"
 # 使用 nerd font 時可以顯示更多 icon。詳情請參考 powerlevel9k wiki 
