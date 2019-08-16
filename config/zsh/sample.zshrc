@@ -105,3 +105,22 @@ alias ip='curl orange.tw'
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+
+# environment variable
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+[[ -s "/Users/yaoandy107/.gvm/scripts/gvm" ]] && source "/Users/yaoandy107/.gvm/scripts/gvm"
+
+export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
+export PATH=$GOBIN:$PATH
+
+export EDITOR=/usr/bin/vim
+
+export PATH="$PATH":"$HOME/.pub-cache/bin"
