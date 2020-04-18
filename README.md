@@ -1,5 +1,5 @@
 # .shconf
-My shell config, thanks for [PinLin/.shconf](https://github.com/PinLin/.shconf)
+My shell config, thanks for [PinLin/.dotfiles](https://github.com/PinLin/.shconf)
 
 ## Target
 + `git`
