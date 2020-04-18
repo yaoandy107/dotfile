@@ -6,7 +6,7 @@ My shell config, thanks for [PinLin/.dotfiles](https://github.com/PinLin/.shconf
 + `vim`
 + `tmux`
 + `zsh`
-+ `oh my zsh`
++ `vim`
 
 ## Install
 
