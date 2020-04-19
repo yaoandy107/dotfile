@@ -30,9 +30,9 @@ applyzsh() {
     # Install zim
     if ! [ -d ${ZSH_CUSTOM:-$HOME/.zim/zimfw.zsh} ]; then
         if command -v curl >/dev/null 2>&1; then
-            sh -c "$(curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh)"
+            zsh -c "$(curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh)"
         else
-            sh -c "$(wget -nv -O - https://raw.githubusercontent.com/zimfw/install/master/install.zsh)"
+            zsh -c "$(wget -nv -O - https://raw.githubusercontent.com/zimfw/install/master/install.zsh)"
         fi
     fi
 
