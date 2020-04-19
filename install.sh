@@ -20,11 +20,15 @@ askquestion() {
     esac
 }
 
-applyzsh() {
+applyzim() {
     # Check zsh
     if ! command -v zsh >/dev/null 2>&1; then
         echo "zsh is not installed."
         return $(false)
+    fi
+
+    if [ -f $HOME/.zshrc ]; then
+        mv $HOME/.zshrc $HOME/.zshrc.bak
     fi
 
     # Install zim
@@ -36,9 +40,6 @@ applyzsh() {
         fi
     fi
 
-    if [ -f $HOME/.zshrc ]; then
-        mv $HOME/.zshrc $HOME/.zshrc.bak
-    fi
     echo "export SHCONF=$INSTALL_DIRECTORY" >>$HOME/.zshrc
     echo "source $INSTALL_DIRECTORY/zsh/.zshrc" >>$HOME/.zshrc
 
@@ -98,7 +99,7 @@ main() {
 
     # Apply the config of zsh
     if askquestion "Do you want to apply the config of zsh?"; then
-        applyzsh
+        applyzim
     fi
 
     # Apply the config of vim
