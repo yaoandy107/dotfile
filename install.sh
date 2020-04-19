@@ -27,49 +27,40 @@ applyzsh() {
         return $(false)
     fi
 
-    # Install vim
+    # Install zim
     if ! [ -d ${ZSH_CUSTOM:-$HOME/.zim/zimfw.zsh} ]; then
-        export RUNZSH=no
-
         if command -v curl >/dev/null 2>&1; then
             sh -c "$(curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh)"
         else
             sh -c "$(wget -nv -O - https://raw.githubusercontent.com/zimfw/install/master/install.zsh)"
         fi
     fi
-    # Install powerlevel10k
-    if ! [ -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]; then
-        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-    fi
-    # Install zsh-autosuggestions
-    if ! [ -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]; then
-        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    fi
-    # Install zsh-syntax-highlighting
-    if ! [ -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    fi
 
     if [ -f $HOME/.zshrc ]; then
         mv $HOME/.zshrc $HOME/.zshrc.bak
     fi
-    echo "export DOTFILES=$INSTALL_DIRECTORY" >>$HOME/.zshrc
+    echo "export SHCONF=$INSTALL_DIRECTORY" >>$HOME/.zshrc
     echo "source $INSTALL_DIRECTORY/zsh/.zshrc" >>$HOME/.zshrc
-    echo "DEFAULT_USER=$USER" >>$HOME/.zshrc
+
+    if [ -f $HOME/.zimrc ]; then
+        mv $HOME/.zimrc $HOME/.zimrc.bak
+    fi
+    echo "source $INSTALL_DIRECTORY/zim/.zimrc" >>$HOME/.zimrc
+    source ~/.zim/zimfw.zsh install
 }
 
-applyvim() {
-    # Check vim
-    if ! command -v vim >/dev/null 2>&1; then
-        echo "vim is not installed."
-        return $(false)
-    fi
+# applyvim() {
+#     # Check vim
+#     if ! command -v vim >/dev/null 2>&1; then
+#         echo "vim is not installed."
+#         return $(false)
+#     fi
 
-    if [ -f $HOME/.vimrc ]; then
-        mv $HOME/.vimrc $HOME/.vimrc.bak
-    fi
-    echo "source $INSTALL_DIRECTORY/vim/.vimrc" >>$HOME/.vimrc
-}
+#     if [ -f $HOME/.vimrc ]; then
+#         mv $HOME/.vimrc $HOME/.vimrc.bak
+#     fi
+#     echo "source $INSTALL_DIRECTORY/vim/.vimrc" >>$HOME/.vimrc
+# }
 
 applytmux() {
     # Check tmux
@@ -111,9 +102,9 @@ main() {
     fi
 
     # Apply the config of vim
-    if askquestion "Do you want to apply the config of vim?"; then
-        applyvim
-    fi
+    # if askquestion "Do you want to apply the config of vim?"; then
+    #     applyvim
+    # fi
 
     # Apply the config of tmux
     if askquestion "Do you want to apply the config of tmux?"; then
