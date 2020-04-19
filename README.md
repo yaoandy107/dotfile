@@ -1,12 +1,8 @@
 # .shconf
 My shell config, thanks for [PinLin/.dotfiles](https://github.com/PinLin/.shconf)
 
-## Target
+## Requirement
 + `git`
-+ `vim`
-+ `tmux`
-+ `zsh`
-+ `vim`
 
 ## Install
 
@@ -18,4 +14,4 @@ bash -c "$(curl -L https://raw.githubusercontent.com/yaoandy107/.shconf/master/i
 bash -c "$(wget -O- https://raw.githubusercontent.com/yaoandy107/.shconf/master/install.sh)"
 ```
 
-The special font-type that Powerline may need was put in the `font` directory.
+Apply the MesloLGS NF as the terminal font.
