@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
 
-REPO_URL="https://github.com/yaoandy107/.shconf"
-REPO_NAME=".shconf"
+REPO_URL="https://github.com/yaoandy107/dotfile"
+REPO_NAME="dotfile"
 
-INSTALL_DIRECTORY=${INSTALL_DIRECTORY:-"$HOME/$REPO_NAME"}
+INSTALL_DIRECTORY=${INSTALL_DIRECTORY:-"$HOME/.$REPO_NAME"}
 INSTALL_VERSION=${INSTALL_VERSION:-"master"}
 
 askquestion() {
@@ -44,7 +44,7 @@ applyzim() {
         fi
     fi
 
-    echo "export SHCONF=$INSTALL_DIRECTORY" >>$HOME/.zshrc
+    echo "export DOTFILE=$INSTALL_DIRECTORY" >>$HOME/.zshrc
     echo "source $INSTALL_DIRECTORY/zsh/.zshrc" >>$HOME/.zshrc
 
     echo "source $INSTALL_DIRECTORY/zim/.zimrc" >>$HOME/.zimrc
