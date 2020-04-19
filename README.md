@@ -14,4 +14,4 @@ bash -c "$(curl -L https://raw.githubusercontent.com/yaoandy107/.shconf/master/i
 bash -c "$(wget -O- https://raw.githubusercontent.com/yaoandy107/.shconf/master/install.sh)"
 ```
 
-Apply the `MesloLGS NF` as the terminal font.
+Please apply the `MesloLGS NF` as the terminal font.
