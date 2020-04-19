@@ -31,6 +31,10 @@ applyzim() {
         mv $HOME/.zshrc $HOME/.zshrc.bak
     fi
 
+    if [ -f $HOME/.zimrc ]; then
+        mv $HOME/.zimrc $HOME/.zimrc.bak
+    fi
+
     # Install zim
     if ! [ -d $HOME/.zim ]; then
         if command -v curl >/dev/null 2>&1; then
@@ -43,9 +47,6 @@ applyzim() {
     echo "export SHCONF=$INSTALL_DIRECTORY" >>$HOME/.zshrc
     echo "source $INSTALL_DIRECTORY/zsh/.zshrc" >>$HOME/.zshrc
 
-    if [ -f $HOME/.zimrc ]; then
-        mv $HOME/.zimrc $HOME/.zimrc.bak
-    fi
     echo "source $INSTALL_DIRECTORY/zim/.zimrc" >>$HOME/.zimrc
     zsh -c "source ~/.zim/zimfw.zsh install"
 }
