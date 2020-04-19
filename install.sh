@@ -42,14 +42,11 @@ applyzsh() {
     echo "export SHCONF=$INSTALL_DIRECTORY" >>$HOME/.zshrc
     echo "source $INSTALL_DIRECTORY/zsh/.zshrc" >>$HOME/.zshrc
 
-    echo "Test0"
     if [ -f $HOME/.zimrc ]; then
         mv $HOME/.zimrc $HOME/.zimrc.bak
     fi
     echo "source $INSTALL_DIRECTORY/zim/.zimrc" >>$HOME/.zimrc
-    echo "Test1"
-    source ~/.zim/zimfw.zsh install
-    echo "Test2"
+    zsh -c "source ~/.zim/zimfw.zsh install"
 }
 
 # applyvim() {
