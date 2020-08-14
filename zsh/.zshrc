@@ -1,3 +1,3 @@
-source $SHCONF/zsh/alias.zsh
-source $SHCONF/zsh/p10k.zsh
+source $DOTFILE/zsh/alias.zsh
+source $DOTFILE/zsh/p10k.zsh
 
