@@ -14,4 +14,4 @@ bash -c "$(curl -L https://raw.githubusercontent.com/yaoandy107/.shconf/master/i
 bash -c "$(wget -O- https://raw.githubusercontent.com/yaoandy107/.shconf/master/install.sh)"
 ```
 
-Please apply the `MesloLGS NF` as the terminal font.
+Please apply the [MesloLGS NF](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/S/Regular/complete/Meslo%20LG%20S%20Regular%20Nerd%20Font%20Complete.ttf) as the terminal font.
