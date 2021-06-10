@@ -3,6 +3,8 @@ My shell config, thanks for [PinLin/.dotfiles](https://github.com/PinLin/.shconf
 
 ## Requirement
 + `git`
++ `zsh`
++ `tmux`
 
 ## Install
 
